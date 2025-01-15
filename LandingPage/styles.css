@@ -1,0 +1,180 @@
+/* Reset & Body Styling */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    background: linear-gradient(120deg, #1c1c1c, #3c3c3c); /* Tema gelap */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+    color: #fff;
+}
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    font-weight: 400;
+}
+
+.menu .btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+/* Tombol Utama */
+.btn {
+    background: linear-gradient(90deg, #c0392b, #8e44ad); /* Merah ke ungu */
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #8e44ad;
+    border-radius: 30px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #8e44ad, #c0392b);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline:hover {
+    background-color: #8e44ad;
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* Animasi Ripple Effect */
+.btn::after,
+.btn-outline::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+}
+
+.btn:active::after,
+.btn-outline:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hover Animasi Skala */
+.scale-up {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.scale-up:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(142, 68, 173, 0.5);
+}
+
+/* Main Section */
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    flex-grow: 1;
+}
+
+.content {
+    max-width: 50%;
+    text-align: left;
+}
+
+.content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.content p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+/* Illustration Styling */
+.illustration img {
+    max-width: 400px;
+    height: auto;
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Footer Styling */
+footer {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+/* Animasi Fade-In */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
