@@ -100,3 +100,23 @@
 .redirect a:hover {
     text-decoration: underline;
 }
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .login-box h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 25px;
+    }
+
+    .form-group input {
+        font-size: 0.9em;
+    }
+}
