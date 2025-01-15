@@ -100,3 +100,29 @@
 .redirect a:hover {
     text-decoration: underline;
 }
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 600px) {
+    .register-box {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .register-box h1 {
+        font-size: 2em;
+    }
+
+    .form-group input {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.9em;
+    }
+
+    .redirect {
+        font-size: 0.8em;
+    }
+}
