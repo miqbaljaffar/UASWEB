@@ -145,7 +145,7 @@ main {
 
 /* Illustration Styling */
 .illustration img {
-    max-width: 400px;
+    max-width: 100%;
     height: auto;
     animation: float 3s infinite ease-in-out;
 }
@@ -176,5 +176,47 @@ footer {
 @keyframes fadeIn {
     to {
         opacity: 1;
+    }
+}
+
+/* Responsivitas - Media Queries */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .content {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .illustration img {
+        max-width: 80%;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .menu .btn {
+        margin: 5px 0;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content h1 {
+        font-size: 2em;
+    }
+
+    .content p {
+        font-size: 1.2em;
     }
 }
