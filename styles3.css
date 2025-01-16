@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
     background: linear-gradient(120deg, #fff000, #ffd700);
     color: #fff;
     font-family: 'Poppins', Arial, sans-serif;
@@ -18,11 +19,16 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.login-box:hover {
+    transform: scale(1.02);
 }
 
 .login-box h1 {
     margin-bottom: 20px;
-    font-size: 2.5em;
+    font-size: 2.2em;
     color: #fff;
 }
 
@@ -99,4 +105,40 @@
 
 .redirect a:hover {
     text-decoration: underline;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .login-box h1 {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-box h1 {
+        font-size: 1.5em;
+    }
+
+    .form-group input {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        font-size: 0.8em;
+        padding: 8px 15px;
+    }
+
+    .redirect {
+        font-size: 0.8em;
+    }
 }
