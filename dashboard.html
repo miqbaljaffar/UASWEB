@@ -4,20 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Rentalys.id</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles4.css">
   <script>
     function logout() {
-      // Mengarahkan ke halaman landing page setelah tombol logout diklik
       window.location.href = "index.html";
+    }
+
+    function showCard(imgSrc, title, description) {
+      const card = document.getElementById("photo-card");
+  
+      // Atur ulang konten modal
+      card.querySelector("img").src = imgSrc;
+      card.querySelector(".title").innerText = title;
+      card.querySelector(".description").innerText = description;
+  
+      // Reset tombol dan input modal
+      const rentBtn = document.querySelector(".rent-btn");
+      const rentInputContainer = document.querySelector(".rent-input-container");
+
+      rentBtn.style.display = "inline-block"; // Tampilkan tombol "Sewa"
+      rentInputContainer.style.display = "none"; // Sembunyikan input dan tombol lainnya
+  
+      // Tampilkan modal
+      card.style.display = "flex";
+    }
+
+
+    function closeCard() {
+      document.getElementById("photo-card").style.display = "none";
+    }
+
+    function showRentInput() {
+      // Menyembunyikan tombol "Sewa" dan menampilkan kolom input dan tombol Batal
+      const rentBtn = document.querySelector(".rent-btn");
+      const rentInputContainer = document.querySelector(".rent-input-container");
+      const pesanBtn = rentInputContainer.querySelector(".pesan-btn");
+
+      rentBtn.style.display = "none";
+      rentInputContainer.style.display = "flex";
+      pesanBtn.style.display = "inline-block"; // Menampilkan tombol Pesan
+    }
+
+
+    function cancelRent() {
+      // Mengembalikan tombol "Sewa" dan menghilangkan kolom input
+      const rentBtn = document.querySelector(".rent-btn");
+      const rentInputContainer = document.querySelector(".rent-input-container");
+      rentBtn.style.display = "inline-block";
+      rentInputContainer.style.display = "none";
     }
   </script>
 </head>
 <body>
   <div class="dashboard-container">
-    <!-- Logout Button -->
-    <button class="btn logout-btn" onclick="logout()">Logout</button>
+    <!-- Header -->
+    <header>
+      <div class="logo">Rentalys.id</div>
+      <div class="menu">
+        <button class="btn logout-btn" onclick="logout()">Logout</button>
+        <img 
+        src="user.png" 
+        alt="Profile Icon" 
+        class="profile-icon" 
+        onclick="window.location.href='profile.html'" 
+        />
+      </div>
+    </header>
 
     <!-- Search Bar -->
     <div class="search-container">
@@ -27,23 +80,47 @@
 
     <!-- Image Collage -->
     <div class="gallery">
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showCard('cos1.jpg', 'Baju Cosplay 1', 'Keterangan tentang baju cosplay 1.')">
         <img src="cos1.jpg" alt="Baju Cosplay 1">
+        <p class="photo-title">Baju Cosplay 1</p> <!-- Judul ditambahkan di sini -->
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showCard('cos2.jpg', 'Baju Cosplay 2', 'Keterangan tentang baju cosplay 2.')">
         <img src="cos2.jpg" alt="Baju Cosplay 2">
+        <p class="photo-title">Baju Cosplay 2</p> <!-- Judul ditambahkan di sini -->
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showCard('cos3.jpg', 'Baju Cosplay 3', 'Keterangan tentang baju cosplay 3.')">
         <img src="cos3.jpg" alt="Baju Cosplay 3">
+        <p class="photo-title">Baju Cosplay 3</p> <!-- Judul ditambahkan di sini -->
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showCard('cos4.jpg', 'Baju Cosplay 4', 'Keterangan tentang baju cosplay 4.')">
         <img src="cos4.jpg" alt="Baju Cosplay 4">
+        <p class="photo-title">Baju Cosplay 4</p> <!-- Judul ditambahkan di sini -->
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showCard('cos5.jpg', 'Baju Cosplay 5', 'Keterangan tentang baju cosplay 5.')">
         <img src="cos5.jpg" alt="Baju Cosplay 5">
+        <p class="photo-title">Baju Cosplay 5</p> <!-- Judul ditambahkan di sini -->
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="showCard('cos6.jpg', 'Baju Cosplay 6', 'Keterangan tentang baju cosplay 6.')">
         <img src="cos6.jpg" alt="Baju Cosplay 6">
+        <p class="photo-title">Baju Cosplay 6</p> <!-- Judul ditambahkan di sini -->
+      </div>
+    </div>
+    
+
+    <!-- Photo Card Modal -->
+    <div id="photo-card" class="photo-card">
+      <div class="card-content">
+        <button class="close-btn" onclick="closeCard()">X</button>
+        <img src="" alt="Detail" class="card-image">
+        <h2 class="title"></h2>
+        <p class="description"></p>
+        <button class="rent-btn" onclick="showRentInput()">Sewa</button>
+        <div class="rent-input-container" style="display: none;">
+          <input type="number" id="sewa-input" placeholder="Masukkan jumlah sewa" />
+          <div class="rent-actions">
+            <button class="cancel-btn" onclick="cancelRent()">Batal</button>
+            <button class="pesan-btn">Pesan</button>
+        </div>
       </div>
     </div>
   </div>
